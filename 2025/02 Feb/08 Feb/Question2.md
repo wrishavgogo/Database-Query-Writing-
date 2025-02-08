@@ -1,0 +1,131 @@
+Write a solution to find the employees who earn more than their managers.
+
+Return the result table in any order.
+
+The result format is in the following example.
+
+ 
+
+Example 1:
+
+Input: 
+Employee table:
++----+-------+--------+-----------+
+| id | name  | salary | managerId |
++----+-------+--------+-----------+
+| 1  | Joe   | 70000  | 3         |
+| 2  | Henry | 80000  | 4         |
+| 3  | Sam   | 60000  | Null      |
+| 4  | Max   | 90000  | Null      |
++----+-------+--------+-----------+
+Output: 
++----------+
+| Employee |
++----------+
+| Joe      |
++----------+
+Explanation: Joe is the only employee who earns more than his manager.
+
+
+
+My Experience : 
+
+While coding out the solution, 
+
+
+New Thing which I learnt :- 
+
+1.
+
+ 'AS' ---> Keyword :- 
+
+select e.name AS Employee from Employee e ; 
+
+e -> Alias and (AS Employee ) basically prints the row name but renames it as Employee . 
+
++----------+
+| Employee |
++----------+
+| Joe      |
++----------+
+
+2. 'ON' Keyword :-
+
+   This on keyword works before the JOINS , based on the condition the JOINS are applied . 
+   Now keep in mind the LEFT JOIN is always printing all the rows of the LEFT TABLE , the ON condition says which row to match with the row of left table .
+
+    If you simply do LEFT JOIN without ON condition , it will merge all the rows from the left table with all the rows from the right table
+
+
+3. Now to solve this problem
+
+selct e.name AS Employee from Employee 
+LEFT JOIN Employee m ON e.managerId = m.id    ----> at this point the join has happened 
+where e.salary > m.salary;
+
+
+
+For example if we just took :- 
+
+
+select e.name AS Employee , m.name AS Manager , e.salary AS ESalary , m.salary AS MSalary
+ from Employee e
+JOIN Employee m ON e.managerId = m.id ;
+
+then output will be something like : 
+
+| Employee | Manager | ESalary | MSalary |
+| -------- | ------- | ------- | ------- |
+| Joe      | Sam     | 70000   | 60000   |
+| Henry    | Max     | 80000   | 90000   |
+
+
+now on this we are applying 
+"where e.salary > m.salary" 
+
+
+
+***********
+
+Leetcode Soln : 
+
+I saw a very simple soln without using joins and stuff , i did not know it could be done like that as well . 
+
+
+select e.name AS Employee 
+from Employee e , Employee m 
+where e.managerId = m.id and e.salary > m.salary;
+
+very simple query , did not know query can be written like this as well 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
