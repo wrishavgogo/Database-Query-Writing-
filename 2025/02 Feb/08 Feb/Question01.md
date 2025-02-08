@@ -1,0 +1,88 @@
+
+Sql Queries :- 
+
+
+
+
+Today I learnt about alias .
+
+**** Short version 
+Select  p.firstName , p.secondName 
+From Person p 
+
+
+*****Long Version 
+
+
+p ---> is an Alias 
+
+
+
+alias is used to convert the query into short . 
+
+
+also I learnt about left Join or left outer join today . 
+
+What does Left Join mean ? 
+
+When you are joining or merging two tables , when two columns are common in the tables , then 
+left join or left outer join , takes all the coloumns from the left table and only the common column from the right table and joins them to print the result 
+
+
+
+
+Take the following 2 tables :- 
+
+
+Person table:
++----------+----------+-----------+
+| personId | lastName | firstName |
++----------+----------+-----------+
+| 1        | Wang     | Allen     |
+| 2        | Alice    | Bob       |
++----------+----------+-----------+
+Address table:
++-----------+----------+---------------+------------+
+| addressId | personId | city          | state      |
++-----------+----------+---------------+------------+
+| 1         | 2        | New York City | New York   |
+| 2         | 3        | Leetcode      | California |
++-----------+----------+---------------+------------+
+
+
+I understood the difference between (Right Join) & (Left Join ) 
+
+In Left Join whichever table is in the left gets priority . It keeps all the columns of the left Table (Person ) and tries to find match in the right Table ( Address) , 
+if entry is not present it enters NULL value in all columns . 
+
+
+SELECT *from Person p 
+LEFT JOIN Address a 
+where p.personId = a.addressId  ( this is the joining condition ) 
+
+
+output will be like 
+
+
+| personId | firstName | lastName | addressId | personId | city          | state    |
+| -------- | --------- | -------- | --------- | -------- | ------------- | -------- |
+| 1        | Allen     | Wang     | null      | null     | null          | null     |
+| 2        | Bob       | Alice    | 1         | 2        | New York City | New York |
+
+
+
+
+For Right Join 
+SELECT *from Person p 
+RIGHT JOIN Address a 
+where p.personId = a.addressId  ( this is the joining condition ) 
+
+
+all the columns from Right Table(address) will be given priority and tries to find match in Left Table(person ) , if nothing there will populate the columns as null 
+
+| personId | firstName | lastName | addressId | personId | city          | state    |
+| -------- | --------- | -------- | --------- | -------- | ------------- | -------- |
+| 1        | Allen     | Wang     | null      | null     | null          | null     |
+| 2        | Bob       | Alice    | 1         | 2        | New York City | New York |
+
+
