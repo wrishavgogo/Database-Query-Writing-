@@ -101,6 +101,20 @@ I would have uploaded a PDF with examples to show you the order of execution .
 Go Read that and then the answer for this question is also written there . 
 
 
+*********************** HAVING CLAUSE and WHERE CLAUSE 
+
+HAVING vs WHERE
+WHERE → Filters rows before grouping.
+HAVING → Filters groups after grouping.
+
+
+AFTER group by is done executing , 
+
+HAVING RUNS on each of the groups one by one and checks the condition we have applied on HAVING . 
+
+HAVING COUNT(*) > 2 . This just keeps those groups which have more than 2 elements in the group 
+
+
 
 
 
