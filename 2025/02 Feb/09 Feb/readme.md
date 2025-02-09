@@ -117,5 +117,13 @@ HAVING COUNT(*) > 2 . This just keeps those groups which have more than 2 elemen
 
 
 
+Question 2 : Link :
+https://leetcode.com/problems/customers-who-never-order/ 
+
+in this question i got to recollect that = null is not done in SQL, 
+
+if you want to do use IS NULL . Simple 
+
+
 
 
