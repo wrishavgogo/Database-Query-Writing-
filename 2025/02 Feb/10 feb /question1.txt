@@ -1,0 +1,58 @@
+
+
+Am proud of myself for writing this query by myself , Now am gaining confidence in sql 
+
+https://leetcode.com/problems/find-the-team-size/description/
+
+Write a solution to find the team size of each of the employees.
+
+Return the result table in any order.
+
+The result format is in the following example.
+
+ 
+
+Example 1:
+
+Input: 
+Employee Table:
++-------------+------------+
+| employee_id | team_id    |
++-------------+------------+
+|     1       |     8      |
+|     2       |     8      |
+|     3       |     8      |
+|     4       |     7      |
+|     5       |     9      |
+|     6       |     9      |
++-------------+------------+
+Output: 
++-------------+------------+
+| employee_id | team_size  |
++-------------+------------+
+|     1       |     3      |
+|     2       |     3      |
+|     3       |     3      |
+|     4       |     1      |
+|     5       |     2      |
+|     6       |     2      |
++-------------+------------+
+
+
+
+Now basically am doing 
+
+first using a GROUP BY , i can find a team_id --> teamSize by using COUNT(*) AND GROUP  BY 
+and the temporary table which I have generated to get a view name 
+and then using LEFT JOIN , to get the team id to match with the groupBY's teamId and output only the team size 
+
+SELECT e.employee_id AS employee_id , t.team_size AS team_size
+FROM Employee e 
+LEFT JOIN 
+(
+# inner query to find team size 
+SELECT e.team_id , count(*) AS team_size
+FROM Employee e 
+GROUP BY e.team_id 
+# this gives me distinct team_id along with its size 
+) t ON e.team_id = t.team_id;
