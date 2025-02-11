@@ -1,0 +1,42 @@
+https://leetcode.com/problems/second-highest-salary/description/ 
+
+
+
+Write a solution to find the second highest distinct salary from the Employee table. If there is no second highest salary, return null (return None in Pandas).
+
+The result format is in the following example.
+
+ 
+
+Example 1:
+
+Input: 
+Employee table:
++----+--------+
+| id | salary |
++----+--------+
+| 1  | 100    |
+| 2  | 200    |
+| 3  | 300    |
++----+--------+
+Output: 
++---------------------+
+| SecondHighestSalary |
++---------------------+
+| 200                 |
++---------------------+
+
+
+Learnings 
+
+I got to learn how to use NOT IN function 
+
+NOT IN is always used after WHERE CLAUSE 
+
+
+SELECT MAX(e.salary) FROM Employee e 
+WHERE e.salary NOT IN 
+(
+SELECT MAX(e.salary) FROM Employee e 
+)
+
