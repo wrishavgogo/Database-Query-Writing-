@@ -1,0 +1,41 @@
+Today while joining a table with itself i learnt 
+
+LEFT JOIN cannot be done without ON condition . 
+With LEFT JOIN you have to provide ON Clause 
+
+
+Another Interesting fact 
+CROSS JOIN , which i learnt newly 
+
+CROSS JOIN does the cartisean product of everything with everything 
+M X N product . 
+and CROSS JOIN does not need ON Clause 
+you can easily utilise CROSS JOINs to enable self joining products. 
+
+https://leetcode.com/problems/all-the-matches-of-the-league/ 
+
+Input: 
+Teams table:
++-------------+
+| team_name   |
++-------------+
+| Leetcode FC |
+| Ahly SC     |
+| Real Madrid |
++-------------+
+Output: 
++-------------+-------------+
+| home_team   | away_team   |
++-------------+-------------+
+| Real Madrid | Leetcode FC |
+| Real Madrid | Ahly SC     |
+| Leetcode FC | Real Madrid |
+| Leetcode FC | Ahly SC     |
+| Ahly SC     | Real Madrid |
+| Ahly SC     | Leetcode FC |
++-------------+-------------+
+Explanation: All the matches of the league are shown in the table.
+
+
+If you do CROSS JOIN 
+and apply where t1.team_name != t2.team_name , its much easier than manipulating LEFT JOIN 
