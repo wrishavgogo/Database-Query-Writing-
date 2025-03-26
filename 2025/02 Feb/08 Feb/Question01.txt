@@ -75,14 +75,57 @@ output will be like
 For Right Join 
 SELECT *from Person p 
 RIGHT JOIN Address a 
-where p.personId = a.addressId  ( this is the joining condition ) 
+where p.personId = a.personId  ( this is the joining condition ) 
 
 
 all the columns from Right Table(address) will be given priority and tries to find match in Left Table(person ) , if nothing there will populate the columns as null 
 
 | personId | firstName | lastName | addressId | personId | city          | state    |
 | -------- | --------- | -------- | --------- | -------- | ------------- | -------- |
-| 1        | Allen     | Wang     | null      | null     | null          | null     |
+| null     | null      | null     | 2         | 3        | Leetcode      | California |
 | 2        | Bob       | Alice    | 1         | 2        | New York City | New York |
+
+
+
+Notice how the right table got priority . 
+
+
+
+
+
+Difference between Inner and outer join 
+
+
+
+Inner join , will only return rows when joins are made , it will return those rows  for which match is found 
+
+For example
+
+Person table:
++----------+----------+-----------+
+| personId | lastName | firstName |
++----------+----------+-----------+
+| 1        | Wang     | Allen     |
+| 2        | Alice    | Bob       |
++----------+----------+-----------+
+Address table:
++-----------+----------+---------------+------------+
+| addressId | personId | city          | state      |
++-----------+----------+---------------+------------+
+| 1         | 2        | New York City | New York   |
+| 2         | 3        | Leetcode      | California |
++-----------+----------+---------------+------------+
+
+
+SELECT *from Person p 
+INNER JOIN Address a 
+ON p.personId = a.personId  ( this is the joining condition ) 
+
+will only return the row personId = 2 , because that is matching the condition only 
+
+personId	lastName	firstName	addressId	personId (Address)	city	state
+2	         Alice	     Bob	    1	       2	        NewYork City	New York
+
+
 
 
