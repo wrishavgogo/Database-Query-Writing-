@@ -58,7 +58,7 @@ if entry is not present it enters NULL value in all columns .
 
 SELECT *from Person p 
 LEFT JOIN Address a 
-where p.personId = a.addressId  ( this is the joining condition ) 
+where p.personId = a.personId  ( this is the joining condition ) 
 
 
 output will be like 
