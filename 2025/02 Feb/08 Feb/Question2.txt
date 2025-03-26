@@ -98,6 +98,35 @@ where e.managerId = m.id and e.salary > m.salary;
 
 very simple query , did not know query can be written like this as well 
 
+This query basically translates to 
+
+for (Employee e : employees) {  // Outer Loop: Employees
+            for (Employee m : employees) {  // Inner Loop: Managers
+                if (e.managerId != null && e.managerId.equals(m.id) && e.salary > m.salary) {
+                    result.add(e.name);
+                }
+            }
+        }
+
+you can write multiple nesting in this way , if there are 3 tables 
+
+Execution Process (Nested Loop)
+Most databases optimize joins, but in a basic execution model, this query would be processed like a nested loop join:
+
+For each row in Employee e (outer loop, employee table)
+
+Check its managerId.
+
+For each row in Employee m (inner loop, manager table)
+
+Check if m.id = e.managerId (find the corresponding manager).
+
+Check if e.salary > m.salary (filtering condition).
+
+If both conditions are met, add e.name to the result.
+
+
+
 
 
 
