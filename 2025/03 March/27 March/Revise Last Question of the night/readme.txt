@@ -56,3 +56,29 @@ Output:
 Query : 
 
 Its mentioned in the pdf follow that 
+
+
+Offset function is new , 
+
+in the query at the end use offset k - 1 , to skip k - 1 rows and the kth row will be your answer 
+
+below is the actual soln if you are having doubts read the pdf for explanation 
+
+
+select ifnull(
+
+    # subquery hence wrap around parathesis
+    # be kind to sql compiler
+    (
+        select distinct(salary) from Employee 
+        order by salary desc
+        limit 1 offset 1
+        # you can do offset k - 1 solves for kth highest salary
+    )
+    , 
+    null
+) as SecondHighestSalary
+
+
+// we learnt offset in page / offset  based pagination 
+
