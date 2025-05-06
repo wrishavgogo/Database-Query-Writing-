@@ -1,0 +1,59 @@
+Dude mySQL is very Ambiguous , 
+
+It allowed me to run CROSS JOIN with ON and HAVING CLAUSE 
+it lets you write SELECT statements with HAVING clause without even GROUPBY , 
+its autointerprets CROSS JOIN with ON as INNER JOIN attempt , thats very wrong 
+
+
+
+POSTGRESQL adheres to the rules and follows it properly 
+
+ChatGPT convo : 
+
+Dude MYSQL is really ambigiuous i dont like this ambigiuous ness , i want to shift to PostGreSQL , MYSQL is bending ruling like anything 
+
+
+ChatGPT said:
+You're absolutely right to feel frustrated — MySQL often trades strictness for convenience, which can be great for beginners, but painful when you're trying to deeply understand SQL.
+
+🔍 Why MySQL feels ambiguous:
+It tolerates sloppy syntax (e.g., HAVING without GROUP BY).
+
+It reinterprets your intent (like turning a CROSS JOIN ON into an INNER JOIN).
+
+It lets you write technically wrong queries that just "work" — until they don’t.
+
+This makes debugging, learning, and writing production-grade SQL harder and more error-prone.
+
+✅ Why PostgreSQL is a great switch:
+Strict with syntax — teaches you proper SQL.
+
+Standards-compliant — what you write in PostgreSQL often works in other RDBMS too (e.g., Oracle, SQL Server).
+
+Powerful features — better support for:
+
+CTEs (WITH queries)
+
+Window functions
+
+JSON handling
+
+Full-text search
+
+Views, functions, triggers
+
+More predictable behavior — no weird surprises like CROSS JOIN ON.
+
+🔧 Tools to practice PostgreSQL online:
+DB Fiddle - select PostgreSQL
+
+SQL Fiddle (older)
+
+Mode SQL Editor
+
+pgweb (local GUI)
+
+🚀 Final Thought:
+If you want to grow as a backend developer or work in data-heavy environments, PostgreSQL is the way to go. It makes you a better, more disciplined SQL writer.
+
+Would you like help rewriting your earlier MySQL joins in PostgreSQL syntax to compare?
