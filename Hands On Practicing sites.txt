@@ -1,0 +1,29 @@
+✅ 1. SQL Fiddle
+🔹 Lets you create schema and run queries.
+
+🔹 Supports various database engines like MySQL, PostgreSQL, SQLite.
+
+🔹 Simple and lightweight.
+
+📝 You define tables on the left panel and write queries on the right panel.
+
+✅ 2. DB Fiddle
+🔹 Clean interface with live result preview.
+
+🔹 Supports multiple SQL dialects (MySQL, PostgreSQL, SQLite, MariaDB).
+
+🔹 Great for testing joins and sharing your code via link.
+
+✅ 3. Mode SQL Tutorial Playground
+🔹 Beginner-friendly.
+
+🔹 Preloaded with sample datasets.
+
+🔹 Ideal for guided learning.
+
+✅ 4. SQLite Online
+🔹 Real-time SQLite editor.
+
+🔹 Create and play with your own tables.
+
+🔹 No sign-up required.
