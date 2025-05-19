@@ -1,0 +1,92 @@
+
+Write a solution to find the team size of each of the employees.
+
+Return the result table in any order.
+
+The result format is in the following example.
+
+Example 1:
+
+Input: 
+Employee Table:
++-------------+------------+
+| employee_id | team_id    |
++-------------+------------+
+|     1       |     8      |
+|     2       |     8      |
+|     3       |     8      |
+|     4       |     7      |
+|     5       |     9      |
+|     6       |     9      |
++-------------+------------+
+Output: 
++-------------+------------+
+| employee_id | team_size  |
++-------------+------------+
+|     1       |     3      |
+|     2       |     3      |
+|     3       |     3      |
+|     4       |     1      |
+|     5       |     2      |
+|     6       |     2      |
++-------------+------------+
+
+
+Answer) 
+
+
+WITH (
+SELECT e.team_id as team_id , COUNT(e.employee_id) as team_size
+FROM  Employee e
+GROUP BY e.team_id) AS TeamTable;    ----> also here ';' will not be there as we want to 
+
+SELECT e.employee_id , t.team_size 
+FROM Employee e 
+LEFT JOIN  TeamTable t
+ON e.team_id = t.team_id;
+
+
+I did a mistake on this part 
+WITH (
+SELECT e.team_id as team_id , COUNT(e.employee_id) as team_size
+FROM  Employee e
+GROUP BY e.team_id) AS TeamTable;
+
+it is supposed to be 
+WITH TeamTable AS (
+SELECT e.team_id as team_id , COUNT(e.employee_id) as team_size
+FROM  Employee e
+GROUP BY e.team_id) 
+
+SELECT e.employee_id , t.team_size 
+FROM Employee e 
+LEFT JOIN  TeamTable t
+ON e.team_id = t.team_id; --> final semicolon here
+
+
+
+
+WITH A AS (...),
+     B AS (...)
+SELECT ...
+
+A CTE (Common Table Expression) 
+
+so SQL allows you to write like these 
+WITH A AS (...),
+     B AS (...)
+SELECT ...
+
+these wouldn't be possible if you were to only write 
+with () as x ,
+     () as y
+
+hence query convention is 
+with x as (subquery ...) 
+
+
+
+
+
+
+
