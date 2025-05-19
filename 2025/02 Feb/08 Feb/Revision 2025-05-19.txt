@@ -1,0 +1,21 @@
+Question 2
+
+Select e.id , e.name From Employee e 
+Inner Join Employee m
+on e.managerID = m.id
+Where e.salary > m.salary;
+
+
+Well i forgot that query can be written like this as well 
+
+select e.name AS Employee 
+from Employee e , Employee m 
+where e.managerId = m.id and e.salary > m.salary;
+
+for (Employee e : employees) {  // Outer Loop: Employees
+            for (Employee m : employees) {  // Inner Loop: Managers
+                if (e.managerId != null && e.managerId.equals(m.id) && e.salary > m.salary) {
+                    result.add(e.name);
+                }
+            }
+        }
