@@ -1,0 +1,30 @@
+
+CREATE TABLE <table-name>
+(
+    field_name type PRIMARY KEY ,
+    .
+    .
+    .
+    .
+)
+
+CREATE TABLE EMPLOYEE 
+(
+    ID INT PRIMARY KEY,
+    NAME VARCHAR(10),
+    JOIN_DATE DATE,
+    LOGIN_TIME TIMESTAMP
+);
+
+this is how you can enter multiple rows at a time 
+
+INSERT INTO EMPLOYEE (ID, NAME ,JOIN_DATE , LOGIN_TIME ) VALUES
+(1 , 'abc','2025-05-19',17239230),
+(2 , 'bcd','2025-05-19',17239232),
+(3 , 'cde','2025-05-19',17239233);
+
+when inserting single rows  directly you can enter without specifying column names 
+
+INSERT INTO EMPLOYEE 
+VALUES (123,'ABC','2025-05-19',1722312312);
+
